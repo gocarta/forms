@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CARTA | Employment Application</title>
+    <meta name="viewport" content="width=device-width">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    <script src="https://unpkg.com/state-util@0.2.2/dist/write-state-to-element.js"></script>
+
+    <script>
+      window.app = {
+        state: {
+          form: {
+          }
+        }
+      };
+    </script>
+    <style>
+      #when_did_you_work_for_carta_wrapper,
+      #have_you_ever_been_convicted_of_a_felony_explanation_wrapper,
+      #can_you_work_all_shifts_explanation_wrapper,
+      #can_you_work_weekends_and_or_holidays_explanation_wrapper,
+      #accident_record_wrapper,
+      #traffic_convictions_wrapper {
+        display: none;
+      }
+
+      body[data-state-have_you_ever_worked_for_carta="Yes"] #when_did_you_work_for_carta_wrapper {
+        display: block;
+      }
+      body[data-state-have_you_ever_been_convicted_of_a_felony="Yes"] #have_you_ever_been_convicted_of_a_felony_explanation_wrapper {
+        display: block;
+      }
+      body[data-state-can_you_work_all_shifts="No"] #can_you_work_all_shifts_explanation_wrapper {
+        display: block;
+      }
+      body[data-state-can_you_work_weekends_andor_holidays="No"] #can_you_work_weekends_and_or_holidays_explanation_wrapper {
+        display: block;
+      }
+      body[data-state-are_you_applying_for_a_driving_position_of_any_kind="Yes"] #accident_record_wrapper {
+        display: block;
+      }
+      body[data-state-are_you_applying_for_a_driving_position_of_any_kind="Yes"] #traffic_convictions_wrapper {
+        display: block;
+      }      
+    </style>
+  </head>
+  <body>
+    <form class="max-w-md mx-auto">
+      <h3 class="text-3xl font-extrabold dark:text-white mb-3" style="background: darkolivegreen; color: whitesmoke; text-align: center">THIS IS A TEST SITE</h1>
+
+      <h3 class="text-3xl font-extrabold dark:text-white mb-3">Applicant Information</h1>
+
+      <!-- first name | last name -->
+      <div class="grid md:grid-cols-2 md:gap-6">
+        <div class="relative z-0 w-full mb-5 group">
+            <input type="text" name="First name" id="first_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+            <label for="first_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">First name</label>
+        </div>
+        <div class="relative z-0 w-full mb-5 group">
+            <input type="text" name="Last name" id="last_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+            <label for="last_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Last name</label>
+        </div>
+      </div>
+
+      <!-- address -->
+      <div class="relative z-0 w-full mb-5 group">
+        <input type="text" name="Address line 1" id="address_line_1" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+        <label for="address_line_1" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Address</label>
+      </div>
+
+      <!-- city | state | zip -->
+      <div class="grid md:grid-cols-3 md:gap-6">
+        <div class="relative z-0 w-full mb-5 group">
+            <input type="text" name="City" id="city" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+            <label for="city" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">City</label>
+        </div>
+        <div class="relative z-0 w-full mb-5 group">
+            <input type="text" name="State" id="state" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+            <label for="state" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">State</label>
+        </div>
+        <div class="relative z-0 w-full mb-5 group">
+            <input type="text" name="ZIP Code" id="zip" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+            <label for="zip" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Zip</label>
+        </div>        
+      </div>
+
+      <!-- phone -->
+      <div class="relative z-0 w-full mb-5 group">
+        <span class="absolute start-0 bottom-3 text-gray-500 dark:text-gray-400">
+            <svg class="w-4 h-4 rtl:rotate-[270deg]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 19 18">
+                <path d="M18 13.446a3.02 3.02 0 0 0-.946-1.985l-1.4-1.4a3.054 3.054 0 0 0-4.218 0l-.7.7a.983.983 0 0 1-1.39 0l-2.1-2.1a.983.983 0 0 1 0-1.389l.7-.7a2.98 2.98 0 0 0 0-4.217l-1.4-1.4a2.824 2.824 0 0 0-4.218 0c-3.619 3.619-3 8.229 1.752 12.979C6.785 16.639 9.45 18 11.912 18a7.175 7.175 0 0 0 5.139-2.325A2.9 2.9 0 0 0 18 13.446Z"/>
+            </svg>
+        </span>        
+        <input type="text" name="Phone number" id="phone" class="block py-2.5 ps-6 pe-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder=" " />
+        <label for="phone" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:start-6 peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Phone number</label>
+      </div>
+
+      <!-- email -->
+      <div class="relative z-0 w-full mb-5 group">
+        <input type="email" name="Email address" id="email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+        <label for="email" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email</label>
+      </div>
+
+      <!-- date available-->
+      <div class="relative w-full mb-5">
+        <div class="absolute inset-y-0 start-0 flex items-center ps-0 pointer-events-none">
+          <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+            </svg>
+        </div>
+        <input
+        id="date_available"
+        name="Date available"
+        datepicker datepicker-autohide datepicker-buttons datepicker-autoselect-today type="text"
+        class="block py-2.5 ps-5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        placeholder=" "
+        required>
+        <label for="date_available" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:start-6 peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Date available</label>
+      </div>
+
+      <!-- desired salary -->
+      <div class="relative z-0 w-full mb-5 group">
+        <span class="absolute start-0 bottom-3 text-gray-500 dark:text-gray-400">
+            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 2a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1M2 5h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm8 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"/>
+        </svg>
+        </span>
+        <input type="text" id="floating_desired_salary" class="block py-2.5 ps-6 pe-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder=" " />
+        <label for="floating_desired_salary" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:start-6 peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Desired salary</label>
+      </div>
+      
+      <!-- position applied for-->
+      <div class="relative z-0 w-full mb-5 group">
+        <input type="text" name="floating_position" id="floating_position" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+        <label for="floating_position" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Position applied for</label>
+      </div>
+
+      <!-- authorized -->      
+      <h5 class="mb-4 font-normal text-gray-900 dark:text-white">Are you authorized to work in the U.S.? *</h5>
+      <div class="grid gap-6 md:grid-cols-2">
+        <div class="flex items-center ps-4 border border-gray-200 rounded-sm dark:border-gray-700">
+          <input id="are_you_authorized_to_work_in_the_us_yes" type="radio" value="Yes" name="Are you authorized to work in the U.S.?" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+          <label for="are_you_authorized_to_work_in_the_us_yes" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Yes</label>
+        </div>
+        <div class="flex items-center ps-4 border border-gray-200 rounded-sm dark:border-gray-700">
+          <input id="are_you_authorized_to_work_in_the_us_yes" type="radio" value="Yes" name="Are you authorized to work in the U.S.?" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+          <label for="are_you_authorized_to_work_in_the_us_yes" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">No</label>
+        </div>      
+      </div>
+
+      <br/>
+
+      <!-- have you ever worked for CARTA -->      
+      <h5 class="mb-4 font-normal text-gray-900 dark:text-white">Have you ever worked for CARTA? *</h5>
+      <div class="grid gap-6 md:grid-cols-2">
+        <div class="flex items-center ps-4 border border-gray-200 rounded-sm dark:border-gray-700">
+          <input id="have_you_ever_worked_for_carta_yes" type="radio" value="Yes" name="Have you ever worked for CARTA?" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+          <label for="have_you_ever_worked_for_carta_yes" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Yes</label>
+        </div>
+        <div class="flex items-center ps-4 border border-gray-200 rounded-sm dark:border-gray-700">
+          <input id="have_you_ever_worked_for_carta_no" type="radio" value="No" name="Have you ever worked for CARTA?" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+          <label for="have_you_ever_worked_for_carta_no" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">No</label>
+        </div>      
+      </div>
+
+      <br/>
+      <div class="relative z-0 w-full mb-5 group" id="when_did_you_work_for_carta_wrapper">
+        <input type="text" name="When did you work for CARTA?" id="when_did_you_work_for_carta" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
+        <label for="when_did_you_work_for_carta" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">When did you work for CARTA?</label>
+      </div>
+
+      <!-- Have you ever been convicted of a felony? *-->
+      <h5 class="mb-4 font-normal text-gray-900 dark:text-white">Have you ever been convicted of a felony? *</h5>
+      <div class="grid gap-6 md:grid-cols-2">
+        <div class="flex items-center ps-4 border border-gray-200 rounded-sm dark:border-gray-700">
+          <input id="have_you_ever_been_convicted_of_a_felony_yes" type="radio" value="Yes" name="Have you ever been convicted of a felony?" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+          <label for="have_you_ever_been_convicted_of_a_felony_yes" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Yes</label>
+        </div>
+        <div class="flex items-center ps-4 border border-gray-200 rounded-sm dark:border-gray-700">
+          <input id="have_you_ever_been_convicted_of_a_felony_no" type="radio" value="No" name="Have you ever been convicted of a felony?" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+          <label for="have_you_ever_been_convicted_of_a_felony_no" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">No</label>
+        </div>      
+      </div>
+      <br/>
+      <div id="have_you_ever_been_convicted_of_a_felony_explanation_wrapper">
+        <label for="have_you_ever_been_convicted_of_a_felony_explanation" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">If you have been convicted of a felony, please explain</label>
+        <textarea id="have_you_ever_been_convicted_of_a_felony_explanation" name="If you have been convicted of a felony, please explain" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
+      </div>
+
+      <!--Can you work all shifts? *-->
+      <h5 class="mb-4 font-normal text-gray-900 dark:text-white">Can you work all shifts? *</h5>
+      <div class="grid gap-6 md:grid-cols-2">
+        <div class="flex items-center ps-4 border border-gray-200 rounded-sm dark:border-gray-700">
+          <input id="can_you_work_all_shifts_yes" type="radio" value="Yes" name="Can you work all shifts?" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+          <label for="can_you_work_all_shifts_yes" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Yes</label>
+        </div>
+        <div class="flex items-center ps-4 border border-gray-200 rounded-sm dark:border-gray-700">
+          <input id="can_you_work_all_shifts_no" type="radio" value="No" name="Can you work all shifts?" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+          <label for="can_you_work_all_shifts_no" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">No</label>
+        </div>      
+      </div>
+      <br/>
+      <div id="can_you_work_all_shifts_explanation_wrapper">
+        <label for="can_you_work_all_shifts_explanation" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">If you can't work all shifts, please explain</label>
+        <textarea id="can_you_work_all_shifts_explanation" name="If you can't work all shifts, please explain" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
+      </div>
+
+      <!--Can you work weekends and/or holidays? *-->
+      <h5 class="mb-4 font-normal text-gray-900 dark:text-white">Can you work weekends and/or holidays? *</h5>
+      <div class="grid gap-6 md:grid-cols-2">
+        <div class="flex items-center ps-4 border border-gray-200 rounded-sm dark:border-gray-700">
+          <input id="can_you_work_weekends_and_or_holidays_yes" type="radio" value="Yes" name="Can you work weekends and/or holidays?" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+          <label for="can_you_work_weekends_and_or_holidays_yes" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Yes</label>
+        </div>
+        <div class="flex items-center ps-4 border border-gray-200 rounded-sm dark:border-gray-700">
+          <input id="can_you_work_weekends_and_or_holidays_no" type="radio" value="No" name="Can you work weekends and/or holidays?" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+          <label for="can_you_work_weekends_and_or_holidays_no" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">No</label>
+        </div>
+      </div>
+      <br/>
+      <div id="can_you_work_weekends_and_or_holidays_explanation_wrapper">
+        <label for="can_you_work_weekends_and_or_holidays_explanation" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">If you can't work weekends and/or holidays, please explain</label>
+        <textarea id="can_you_work_weekends_and_or_holidays_explanation" name="If you can't work weekends and/or holidays, please explain" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
+      </div>      
+
+      <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+      <h3 class="text-3xl font-extrabold dark:text-white">Education</h1>
+      </br>
+      <!--High school wrapper-->
+      <div id="high_school_wrapper" class="ml-3">
+        <h4 class="text-2xl font-extrabold dark:text-white">High School</h1>
+        </br>
+        <div class="relative z-0 w-full mb-5 group">
+          <input type="text" name="High School" id="high_school" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+          <label for="high_school" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">High School</label>
+        </div>
+        <div class="relative z-0 w-full mb-5 group">
+          <input type="text" name="High school address line 1" id="high_school_address_line_1" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+          <label for="high_school_address_line_1" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Address</label>
+        </div>
+        <div class="grid md:grid-cols-3 md:gap-6">
+          <div class="relative z-0 w-full mb-5 group">
+              <input type="text" name="High school city" id="high_school_city" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+              <label for="high_school_city" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">City</label>
+          </div>
+          <div class="relative z-0 w-full mb-5 group">
+              <input type="text" name="High school state" id="high_school_state" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+              <label for="high_school_state" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">State</label>
+          </div>
+          <div class="relative z-0 w-full mb-5 group">
+              <input type="text" name="High school ZIP Code" id="high_school_zip" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+              <label for="high_school_zip" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Zip</label>
+          </div>        
+        </div>
+        <h5 class="mb-4 font-normal text-gray-900 dark:text-white">Did you graduate? *</h5>
+        <div class="grid gap-6 md:grid-cols-2">
+          <div class="flex items-center ps-4 border border-gray-200 rounded-sm dark:border-gray-700">
+            <input id="high_school_did_you_graduate_yes" type="radio" value="Yes" name="High school: Did you graduate?" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+            <label for="high_school_did_you_graduate_yes" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Yes</label>
+          </div>
+          <div class="flex items-center ps-4 border border-gray-200 rounded-sm dark:border-gray-700">
+            <input id="high_school_did_you_graduate_no" type="radio" value="No" name="High school: Did you graduate?" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+            <label for="high_school_did_you_graduate_no" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">No</label>
+          </div>
+        </div>
+        </br>
+        <div class="relative z-0 w-full mb-5 group">
+          <input type="text" name="High school degree/focus" id="high_school_degree_focus" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+          <label for="high_school_degree_focus" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Degree/Focus</label>
+        </div>            
+      </div>
+
+      <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+      <!--College wrapper-->
+      <div id="college_wrapper" class="ml-3">
+        <h4 class="text-2xl font-extrabold dark:text-white">College</h1>
+        </br>
+        <div class="relative z-0 w-full mb-5 group">
+          <input type="text" name="College" id="college" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+          <label for="college" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">College</label>
+        </div>
+        <div class="relative z-0 w-full mb-5 group">
+          <input type="text" name="College address line 1" id="college_address_line_1" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+          <label for="college_address_line_1" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Address</label>
+        </div>
+        <div class="grid md:grid-cols-3 md:gap-6">
+          <div class="relative z-0 w-full mb-5 group">
+              <input type="text" name="College city" id="college_city" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+              <label for="college_city" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">City</label>
+          </div>
+          <div class="relative z-0 w-full mb-5 group">
+              <input type="text" name="College state" id="college_state" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+              <label for="college_state" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">State</label>
+          </div>
+          <div class="relative z-0 w-full mb-5 group">
+              <input type="text" name="College ZIP Code" id="college_zip" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+              <label for="college_zip" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Zip</label>
+          </div>        
+        </div>
+        <h5 class="mb-4 font-normal text-gray-900 dark:text-white">Did you graduate? *</h5>
+        <div class="grid gap-6 md:grid-cols-2">
+          <div class="flex items-center ps-4 border border-gray-200 rounded-sm dark:border-gray-700">
+            <input id="college_did_you_graduate_yes" type="radio" value="Yes" name="College: Did you graduate?" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+            <label for="college_did_you_graduate_yes" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Yes</label>
+          </div>
+          <div class="flex items-center ps-4 border border-gray-200 rounded-sm dark:border-gray-700">
+            <input id="college_did_you_graduate_no" type="radio" value="No" name="College: Did you graduate?" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+            <label for="college_did_you_graduate_no" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">No</label>
+          </div>
+        </div>
+        </br>
+        <div class="relative z-0 w-full mb-5 group">
+          <input type="text" name="College degree/focus" id="college_degree_focus" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+          <label for="college_degree_focus" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Degree/Focus</label>
+        </div>            
+      </div>
+
+      <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+      <!--Other wrapper-->
+      <div id="other_wrapper" class="ml-3">
+        <h4 class="text-2xl font-extrabold dark:text-white">Other</h1>
+        </br>
+        <div class="relative z-0 w-full mb-5 group">
+          <input type="text" name="Other" id="other" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+          <label for="other" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Other</label>
+        </div>
+        <div class="relative z-0 w-full mb-5 group">
+          <input type="text" name="Other address line 1" id="other_address_line_1" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+          <label for="other_address_line_1" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Address</label>
+        </div>
+        <div class="grid md:grid-cols-3 md:gap-6">
+          <div class="relative z-0 w-full mb-5 group">
+              <input type="text" name="Other city" id="other_city" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+              <label for="other_city" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">City</label>
+          </div>
+          <div class="relative z-0 w-full mb-5 group">
+              <input type="text" name="Other state" id="other_state" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+              <label for="other_state" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">State</label>
+          </div>
+          <div class="relative z-0 w-full mb-5 group">
+              <input type="text" name="Other ZIP Code" id="other_zip" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+              <label for="other_zip" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Zip</label>
+          </div>        
+        </div>
+        <h5 class="mb-4 font-normal text-gray-900 dark:text-white">Did you graduate? *</h5>
+        <div class="grid gap-6 md:grid-cols-2">
+          <div class="flex items-center ps-4 border border-gray-200 rounded-sm dark:border-gray-700">
+            <input id="other_did_you_graduate_yes" type="radio" value="Yes" name="Other: Did you graduate?" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+            <label for="other_did_you_graduate_yes" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Yes</label>
+          </div>
+          <div class="flex items-center ps-4 border border-gray-200 rounded-sm dark:border-gray-700">
+            <input id="other_did_you_graduate_no" type="radio" value="No" name="Other: Did you graduate?" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+            <label for="other_did_you_graduate_no" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">No</label>
+          </div>
+        </div>
+        </br>
+        <div class="relative z-0 w-full mb-5 group">
+          <input type="text" name="Other degree/focus" id="other_degree_focus" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+          <label for="other_degree_focus" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Degree/Focus</label>
+        </div>            
+      </div>      
+
+      <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+      <h5 class="mb-4 font-normal text-gray-900 dark:text-white">Are you applying for a driving position of any kind? *</h5>
+      <div class="grid gap-6 md:grid-cols-2">
+        <div class="flex items-center ps-4 border border-gray-200 rounded-sm dark:border-gray-700">
+          <input id="are_you_applying_for_a_driving_position_of_any_kind_yes" type="radio" value="Yes" name="Are you applying for a driving position of any kind?" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+          <label for="are_you_applying_for_a_driving_position_of_any_kind_yes" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Yes</label>
+        </div>
+        <div class="flex items-center ps-4 border border-gray-200 rounded-sm dark:border-gray-700">
+          <input id="are_you_applying_for_a_driving_position_of_any_kind_no" type="radio" value="No" name="Are you applying for a driving position of any kind?" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+          <label for="are_you_applying_for_a_driving_position_of_any_kind_no" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">No</label>          
+        </div>
+      </div>
+      </br>
+      <div id="accident_record_wrapper" class="ml-3">
+        <h5 class="mb-4 font-bold text-gray-900 dark:text-white">Accident Record for the Past 3 Years or More</h5>
+        <div id="accident_1" class="ml-3">
+          <div class="relative w-full mb-5">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-0 pointer-events-none">
+              <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                </svg>
+            </div>
+            <input
+            id="accident_1_date"
+            name="Accident 1: Date"
+            datepicker datepicker-autohide datepicker-buttons datepicker-autoselect-today type="text"
+            class="block py-2.5 ps-5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+            placeholder=" "
+            required>
+            <label for="accident_1_date" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:start-6 peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Accident Date</label>
+          </div>
+          <div class="relative z-0 w-full mb-5 group">
+            <input type="text" name="Nature of Accident (or N/A)" id="nature_of_accident_1" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+            <label for="nature_of_accident_1" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nature of Accident (or N/A)</label>
+          </div>
+          <div class="relative z-0 w-full mb-5 group">
+            <input type="text" name="Fatalities" id="fatalities_1" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+            <label for="fatalities_1" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Fatalities</label>
+          </div>
+          <div class="relative z-0 w-full mb-5 group">
+            <input type="text" name="Injuries" id="injuries_1" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+            <label for="injuries_1" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Injuries</label>
+          </div>
+        </div>
+        <hr class="h-px my-8 bg-blue-200 border-0 dark:bg-blue-700">
+        <div id="accident_2" class="ml-3">
+          <div class="relative w-full mb-5">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-0 pointer-events-none">
+              <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                </svg>
+            </div>
+            <input
+            id="accident_2_date"
+            name="Accident 2: Date"
+            datepicker datepicker-autohide datepicker-buttons datepicker-autoselect-today type="text"
+            class="block py-2.5 ps-5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+            placeholder=" "
+            required>
+            <label for="accident_2_date" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:start-6 peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Accident Date</label>
+          </div>
+          <div class="relative z-0 w-full mb-5 group">
+            <input type="text" name="Nature of Accident (or N/A)" id="nature_of_accident_2" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+            <label for="nature_of_accident_2" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nature of Accident (or N/A)</label>
+          </div>
+          <div class="relative z-0 w-full mb-5 group">
+            <input type="text" name="Fatalities" id="fatalities_2" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+            <label for="fatalities_2" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Fatalities</label>
+          </div>
+          <div class="relative z-0 w-full mb-5 group">
+            <input type="text" name="Injuries" id="injuries_2" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+            <label for="injuries_2" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Injuries</label>
+          </div>
+        </div>
+        <hr class="h-px my-8 bg-blue-200 border-0 dark:bg-blue-700">
+        <div id="accident_3" class="ml-3">
+          <div class="relative w-full mb-5">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-0 pointer-events-none">
+              <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                </svg>
+            </div>
+            <input
+            id="accident_3_date"
+            name="Accident 3: Date"
+            datepicker datepicker-autohide datepicker-buttons datepicker-autoselect-today type="text"
+            class="block py-2.5 ps-5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+            placeholder=" "
+            required>
+            <label for="accident_3_date" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:start-6 peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Accident Date</label>
+          </div>
+          <div class="relative z-0 w-full mb-5 group">
+            <input type="text" name="Nature of Accident (or N/A)" id="nature_of_accident_3" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+            <label for="nature_of_accident_3" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nature of Accident (or N/A)</label>
+          </div>
+          <div class="relative z-0 w-full mb-5 group">
+            <input type="text" name="Fatalities" id="fatalities_3" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+            <label for="fatalities_3" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Fatalities</label>
+          </div>
+          <div class="relative z-0 w-full mb-5 group">
+            <input type="text" name="Injuries" id="injuries_3" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+            <label for="injuries_3" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Injuries</label>
+          </div>
+        </div>        
+      </div>
+
+      <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+      </br>
+      <!-- Traffic Convictions -->
+      <div id="traffic_convictions_wrapper" class="ml-3">
+        <h5 class="mb-4 font-bold text-gray-900 dark:text-white">Traffic Convictions & Forfeitures for the Past 3 Years</h5>
+        <h5 class="mb-4 font-normal text-gray-900 dark:text-white">(Other than parking violations)</h5>
+        <div id="violation_1" class="ml-3">
+          <div class="relative w-full mb-5">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-0 pointer-events-none">
+              <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                </svg>
+            </div>
+            <input
+            id="violation_1_date"
+            name="Violation 1: Date"
+            datepicker datepicker-autohide datepicker-buttons datepicker-autoselect-today type="text"
+            class="block py-2.5 ps-5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+            placeholder=" "
+            required>
+            <label for="violation_1_date" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:start-6 peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Violation Date</label>
+          </div>
+          <div class="relative z-0 w-full mb-5 group">
+            <input type="text" name="Violation 1: Location" id="violation_location_1" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+            <label for="violation_location_1" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Location (or N/A)</label>
+          </div>
+          <div class="relative z-0 w-full mb-5 group">
+            <input type="text" name="Violation 1: Charge" id="violation_charge_1" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+            <label for="violation_charge_1" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Charge</label>
+          </div>
+          <div class="relative z-0 w-full mb-5 group">
+            <input type="text" name="Violation 1: Penalty" id="violation_penalty_1" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+            <label for="violation_penalty_1" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Penalty</label>
+          </div>
+        </div>
+        <hr class="h-px my-8 bg-blue-200 border-0 dark:bg-blue-700">
+        <div id="violation_2" class="ml-3">
+          <div class="relative w-full mb-5">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-0 pointer-events-none">
+              <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                </svg>
+            </div>
+            <input
+            id="violation_2_date"
+            name="Violation 2: Date"
+            datepicker datepicker-autohide datepicker-buttons datepicker-autoselect-today type="text"
+            class="block py-2.5 ps-5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+            placeholder=" "
+            required>
+            <label for="violation_2_date" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:start-6 peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Violation Date</label>
+          </div>
+          <div class="relative z-0 w-full mb-5 group">
+            <input type="text" name="Violation 2: Location" id="violation_location_2" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+            <label for="violation_location_2" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Location (or N/A)</label>
+          </div>
+          <div class="relative z-0 w-full mb-5 group">
+            <input type="text" name="Violation 2: Charge" id="violation_charge_2" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+            <label for="violation_charge_2" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Charge</label>
+          </div>
+          <div class="relative z-0 w-full mb-5 group">
+            <input type="text" name="Violation 2: Penalty" id="violation_penalty_2" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+            <label for="violation_penalty_2" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Penalty</label>
+          </div>
+        </div>
+        <hr class="h-px my-8 bg-blue-200 border-0 dark:bg-blue-700">
+        <div id="violation_3" class="ml-3">
+          <div class="relative w-full mb-5">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-0 pointer-events-none">
+              <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                </svg>
+            </div>
+            <input
+            id="violation_3_date"
+            name="Violation 3: Date"
+            datepicker datepicker-autohide datepicker-buttons datepicker-autoselect-today type="text"
+            class="block py-2.5 ps-5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+            placeholder=" "
+            required>
+            <label for="violation_3_date" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:start-6 peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Violation Date</label>
+          </div>
+          <div class="relative z-0 w-full mb-5 group">
+            <input type="text" name="Violation 3: Location" id="violation_location_3" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+            <label for="violation_location_3" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Location (or N/A)</label>
+          </div>
+          <div class="relative z-0 w-full mb-5 group">
+            <input type="text" name="Violation 3: Charge" id="violation_charge_3" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+            <label for="violation_charge_3" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Charge</label>
+          </div>
+          <div class="relative z-0 w-full mb-5 group">
+            <input type="text" name="Violation 3: Penalty" id="violation_penalty_3" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+            <label for="violation_penalty_3" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Penalty</label>
+          </div>
+        </div>      
+      </div>
+
+      <hr class="h-px my-8 bg-blue-200 border-0 dark:bg-blue-700">
+      <div id="candidate_voluntary_self_identification">
+        <h3 class="text-3xl font-extrabold dark:text-white">Candidate Voluntary Self-Identification</h1>
+        <h4 class="mb-4 font-normal text-gray-900 dark:text-white">Confidential – For Reporting & Compliance Purposes Only</h4>
+        <p class="mb-3">Completion of this form is <strong class="font-semibold text-gray-900 dark:text-white">voluntary</strong> and will not affect your application or consideration for employment. This information is used solely to comply with federal and state equal opportunity laws and reporting requirements.</p>
+        <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+        <!-- Section 1: Candidate Information -->
+        <div id="candidate_voluntary_self_identification_candidate_information">
+          <h4 class="mb-4 font-bold text-gray-900 dark:text-white">Section 1: Candidate Information</h4>
+          <div class="relative z-0 w-full mb-5 group">
+            <input type="text" name="Candidate Voluntary Self-Identification: Full Name" id="candidate_voluntary_self_identification_full_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+            <label for="candidate_voluntary_self_identification_full_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Full Name</label>
+          </div>
+          <div class="relative z-0 w-full mb-5 group">
+            <input type="text" name="Candidate Voluntary Self-Identification: Position Applied For" id="candidate_voluntary_self_identification_position_applied_for" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+            <label for="candidate_voluntary_self_identification_position_applied_for" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Position Applied For</label>
+          </div>
+          <div class="relative w-full mb-5">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-0 pointer-events-none">
+              <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                </svg>
+            </div>
+            <input
+            id="candidate_voluntary_self_identification_date_of_application"
+            name="Candidate Voluntary Self-Identification: Date of Application"
+            datepicker datepicker-autohide datepicker-buttons datepicker-autoselect-today type="text"
+            class="block py-2.5 ps-5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+            placeholder=" "
+            required>
+            <label for="candidate_voluntary_self_identification_date_of_application" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:start-6 peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Date of Application</label>
+          </div>
+          <div class="relative w-full mb-5">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-0 pointer-events-none">
+              <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                </svg>
+            </div>
+            <input
+            id="candidate_voluntary_self_identification_date_completed"
+            name="Candidate Voluntary Self-Identification: Date Completed"
+            datepicker datepicker-autohide datepicker-buttons datepicker-autoselect-today type="text"
+            class="block py-2.5 ps-5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+            placeholder=" "
+            required>
+            <label for="candidate_voluntary_self_identification_date_completed" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:start-6 peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Date Completed</label>
+          </div>
+        </div>    
+
+        <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+        <!-- Section 2: Sex and Gender Identity -->
+        <div id="candidate_voluntary_self_identification_sex_and_gender_identity">
+          <h4 class="mb-4 font-bold text-gray-900 dark:text-white">Section 2: Sex and Gender Identity</h4>
+          <div>Check all that apply.</div>
+          <div class="flex items-center mb-4">
+              <input id="sex_and_gender_identity_male" type="checkbox" name="Sex and Gender Identity: Male" value="Yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+              <label for="sex_and_gender_identity_male" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Male</label>
+          </div>
+          <div class="flex items-center mb-4">
+              <input id="sex_and_gender_identity_female" type="checkbox" name="Sex and Gender Identity: Female" value="Yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+              <label for="sex_and_gender_identity_female" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Female</label>
+          </div>
+          <div class="flex items-center mb-4">
+              <input id="sex_and_gender_identity_nonbinary" type="checkbox" name="Sex and Gender Identity: Non-Binary" value="Yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+              <label for="sex_and_gender_identity_nonbinary" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Non-Binary</label>
+          </div>
+          <div class="flex items-center mb-4">
+              <input id="sex_and_gender_identity_transgender" type="checkbox" name="Sex and Gender Identity: Transgender" value="Yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+              <label for="sex_and_gender_identity_transgender" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Transgender</label>
+          </div>
+          <div class="flex items-center mb-4">
+              <input id="sex_and_gender_identity_prefer_not_to_answer" type="checkbox" name="Sex and Gender Identity: Prefer not to answer" value="Yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+              <label for="sex_and_gender_identity_prefer_not_to_answer" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Prefer not to answer</label>
+          </div>
+          <div class="flex items-center mb-4">
+              <input id="sex_and_gender_identity_prefer_to_self_describe" type="checkbox" name="Sex and Gender Identity: Prefer to self-describe" value="Yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+              <label for="sex_and_gender_identity_prefer_to_self_describe" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300 whitespace-nowrap">Prefer to self-describe</label>
+              <input type="text" name="Prefer to self-describe: Description" id="sex_and_gender_identity_prefer_to_self_describe_description" class="block ml-3 py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+          </div>
+        </div>        
+      </div>
+
+        <!-- Section 3: Race/Ethnicity -->
+        <div id="candidate_voluntary_self_identification_race_and_ethnicity">
+          <h4 class="mb-4 font-bold text-gray-900 dark:text-white">Section 3: Race/Ethnicity</h4>
+          <div>Select one or more.</div>
+          <div class="flex items-center mb-4">
+              <input id="race_and_ethnicity_1" name="Race/Ethnicity: Hispanic or Latino" type="checkbox" value="Yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+              <label for="race_and_ethnicity_1" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Hispanic or Latino</label>
+          </div>
+          <div class="flex items-center mb-4">
+              <input id="race_and_ethnicity_2" name="Race/Ethnicity: White (Not Hispanic or Latino)" type="checkbox" value="Yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+              <label for="race_and_ethnicity_2" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">White (Not Hispanic or Latino)</label>
+          </div>
+          <div class="flex items-center mb-4">
+              <input id="race_and_ethnicity_3" name="Race/Ethnicity: Black or African American (Not Hispanic or Latino)" type="checkbox" value="Yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+              <label for="race_and_ethnicity_3" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Black or African American (Not Hispanic or Latino)</label>
+          </div>  
+          <div class="flex items-center mb-4">
+              <input id="race_and_ethnicity_4" name="Race/Ethnicity: Native Hawaiian or Other Pacific Islander (Not Hispanic or Latino)" type="checkbox" value="Yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+              <label for="race_and_ethnicity_4" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Native Hawaiian or Other Pacific Islander (Not Hispanic or Latino)</label>
+          </div>
+          <div class="flex items-center mb-4">
+              <input id="race_and_ethnicity_5" name="Race/Ethnicity: Asian (Not Hispanic or Latino)" type="checkbox" value="Yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+              <label for="race_and_ethnicity_5" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Asian (Not Hispanic or Latino)</label>
+          </div>
+          <div class="flex items-center mb-4">
+              <input id="race_and_ethnicity_6" name="Race/Ethnicity: American Indian or Alaska Native (Not Hispanic or Latino)" type="checkbox" value="Yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+              <label for="race_and_ethnicity_6" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">American Indian or Alaska Native (Not Hispanic or Latino)</label>
+          </div>
+          <div class="flex items-center mb-4">
+              <input id="race_and_ethnicity_7" name="Race/Ethnicity: Two or More Races (Not Hispanic or Latino)" type="checkbox" value="Yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+              <label for="race_and_ethnicity_7" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Two or More Races (Not Hispanic or Latino)</label>
+          </div>
+          <div class="flex items-center mb-4">
+              <input id="race_and_ethnicity_8" name="Race/Ethnicity: Prefer not to answer" type="checkbox" value="Yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+              <label for="race_and_ethnicity_8" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Prefer not to answer</label>
+          </div>          
+        </div>        
+      </div>
+
+
+      <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+    </form>
+
+
+    <script>
+      // convert form state to JSON-serializable object
+      function form_to_object (form) {
+        const formData = new FormData(form);
+        const results = [];
+        formData.forEach((value, key) => {
+          results.push([key, value]);
+        });
+        return results;
+      }
+
+      function normalize_object(obj) {
+        const results = {};
+        for (let key in obj) {
+          const value = obj[key];
+          key = key.replace(/ /g, "_").replace(/\(/g, "").replace(/\)/g, "").replace(/\./g, "_").replace(/\//g, "").replace(/\'/g, "").replace(/\,/g, "").replace(/\?/g, "").replace(/_{2,}/g, "_").replace(/_+$/, "").toLowerCase(); // attributes normalize to lower case anyway
+          results[key] = value;
+        }
+        return results;
+      }
+
+      function sync_form_to_element(form, element) {
+        app.state.form = form_to_object(form);
+        const state = normalize_object(Object.fromEntries(app.state.form));
+        writeStateToElement({ debug: false, element: element, state: state });
+      }
+
+      function connect_form_to_state_element(form, element) {
+        const nodes = form.querySelectorAll("input, textarea, select, option");
+        for (let i = 0; i < nodes.length; i++) {
+          const node = nodes[i];
+          function callback () {
+            sync_form_to_element(form, element);
+          }
+          node.addEventListener("change", callback);
+          node.addEventListener("input", callback);
+          
+          if (typeof MutationObserver !== "undefined") {
+            const observer = new MutationObserver(callback);
+            observer.observe(document.querySelector("form"), { childList: true, subtree: true });
+          }
+        }
+      }
+
+      connect_form_to_state_element(document.querySelector("form"), document.querySelector("body"));
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+  </body>
+</html>
