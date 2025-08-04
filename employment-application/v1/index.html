@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="dark:bg-gray-900">
   <head>
     <title>CARTA | Employment Application</title>
     <meta name="viewport" content="width=device-width">
@@ -143,8 +143,8 @@
           <label for="are_you_authorized_to_work_in_the_us_yes" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Yes</label>
         </div>
         <div class="flex items-center ps-4 border border-gray-200 rounded-sm dark:border-gray-700">
-          <input id="are_you_authorized_to_work_in_the_us_yes" type="radio" value="Yes" name="Are you authorized to work in the U.S.?" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-          <label for="are_you_authorized_to_work_in_the_us_yes" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">No</label>
+          <input id="are_you_authorized_to_work_in_the_us_no" type="radio" value="No" name="Are you authorized to work in the U.S.?" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+          <label for="are_you_authorized_to_work_in_the_us_no" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">No</label>
         </div>      
       </div>
 
@@ -572,7 +572,7 @@
       <div id="candidate_voluntary_self_identification">
         <h3 class="text-3xl font-extrabold dark:text-white">Candidate Voluntary Self-Identification</h1>
         <h4 class="mb-4 font-normal text-gray-900 dark:text-white">Confidential – For Reporting & Compliance Purposes Only</h4>
-        <p class="mb-3">Completion of this form is <strong class="font-semibold text-gray-900 dark:text-white">voluntary</strong> and will not affect your application or consideration for employment. This information is used solely to comply with federal and state equal opportunity laws and reporting requirements.</p>
+        <p class="mb-3 dark:text-white">Completion of this form is <strong class="font-semibold text-gray-900 dark:text-white">voluntary</strong> and will not affect your application or consideration for employment. This information is used solely to comply with federal and state equal opportunity laws and reporting requirements.</p>
         <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
 
         <!-- Section 1: Candidate Information -->
@@ -729,6 +729,7 @@
           const node = nodes[i];
           function callback () {
             sync_form_to_element(form, element);
+            save_to_session_storage();
           }
           node.addEventListener("change", callback);
           node.addEventListener("input", callback);
@@ -740,6 +741,46 @@
         }
       }
 
+      function save_to_session_storage(element, prefix) {
+        if (element === undefined) element = document.body;
+        if (prefix === undefined) prefix = "#";
+        const inputs = element.querySelectorAll("input");
+        for (let i = 0; i < inputs.length; i++) {
+          const input = inputs[i];
+          const id = input.id;
+          const value = input.value;
+          const key = prefix + id;
+          if (input.type === "text" || input.type === "email") {
+            sessionStorage.setItem(key, input.value);
+          } else if (input.type === "radio") {
+            sessionStorage.setItem(key, input.checked);
+          } else if (input.type === "checkbox") {
+            sessionStorage.setItem(key, input.checked);
+          }
+        }
+      }
+
+      function hydrate_from_session_storage(element, prefix) {
+        if (element === undefined) element = document.body;
+        if (prefix === undefined) prefix = "#";
+        const inputs = element.querySelectorAll("input");
+        for (let i = 0; i < inputs.length; i++) {
+          const input = inputs[i];
+          const id = input.id;
+          const key = prefix + id;
+          const value = sessionStorage.getItem(key);
+
+          if (input.type === "text" || input.type === "email") {
+            input.value = value;
+          } else if (input.type === "radio") {
+            input.checked = value === "true";
+          } else if (input.type === "checkbox") {
+            input.checked = value === "true";
+          }
+        }
+      }
+
+      hydrate_from_session_storage();
       connect_form_to_state_element(document.querySelector("form"), document.querySelector("body"));
     </script>
 
